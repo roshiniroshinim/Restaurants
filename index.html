@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+         *{
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    body{
+      width: 100%;
+      height: 90%;
+    }
+    .image{
+    height: 350px;
+    width: 350px;
+    margin-left: 140%;
+    position: relative;
+    bottom: 50%;
+    }
+    nav{
+      background-color: #777;
+    height: 60px;
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    }
+    label.logo{
+    color:white;
+    font-size: 40px;
+    line-height: 80px;
+    padding: 0 5px;
+    margin-right: 50px;
+    font-weight: bold;
+    text-align: center;
+    }
+    nav ul{
+      float: right;
+      margin-right: 20px;
+    }
+    nav ul li{
+      display: inline-block;
+      line-height: 80px;
+      margin: 15px 5px;
+    }
+    nav ul li a{
+      color: white;
+      font-size: 17px;
+      padding: 8 0 auto;
+       text-decoration: none;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: 10px;
+      right: 80px;   
+    
+    }
+    nav ul li a .login{
+      color: black;
+      background-color: blue;
+      border-radius: 20px;
+    }
+    a:hover{
+      background:#bbb;
+      height: 20px;
+      width: 50px;
+      border-radius: 20px;
+      transition: .5s;
+    }
+    .search{
+      position: relative;
+      top: 0px;
+      right: 80px;
+    }
+    .search input{
+      padding: 7px 0;
+      width: 200px;
+      border: transparent;
+      border-radius: 10px;
+      padding-left: 10px;
+    }
+    @media  screen and (max-width:600px){
+      .search input{
+        right: 50px;
+        position: relative;
+        width: 90px;
+        top: 4px;
+      }
+      .search{
+        position: relative;
+        right: 1%;
+      }
+      .loginbtn h1{
+        font-size: 20px;
+        right: 40px;
+        top: 20px;
+        position: relative;
+        display: inline-block;
+      }
+      .loginbtn {
+        left:25px;
+        position: relative;
+        font-size: 8px;
+        display: inline-block;
+      }
+      
+    }
+    .loginbtn a{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    right: 60px;
+    padding: 5px 5px;
+    }
+    .loginbtn form{
+      position: absolute;
+      right: 20px;
+      width: 250px;
+      height: 250px;
+      background:black;
+      color: white;
+      border-radius: 20px;
+      z-index: 1;
+      line-height: 25px;
+      display: none;
+      border: none;
+    }
+    .loginbtn form h1{
+      height: 40px;
+      margin-top: 20px;
+    }
+    .loginbtn form input{
+      padding: 5px 0;
+      padding-right: 50px;
+      margin: 6px;
+      border-radius: 10px;
+    }
+    .loginbtn form button{
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .loginbtn form p{
+      line-height: 15px;
+    }
+    .arrow-up{
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right:  20px solid transparent;
+      border-bottom: 20px solid white;
+      position: relative;
+      top: 24px;
+      right: 46px;
+      display: none;
+    }
+    .loginbtn:hover form{
+      display: table;
+    }
+    .loginbtn:hover .arrow-up{
+      display: table;
+    }
+    .login{
+      background:white;
+      text-align: center;
+      color: black;
+      height: 40px;
+      width: 120px;
+      font-size: 20px;
+    }
+    .checkbtn{
+      font-size: 30px;
+      color:white;
+      float: right;
+      line-height: 80px;
+      margin-right: 40px;
+      cursor: pointer;
+      display: none;
+      
+    }
+    #check{
+      display: none;
+    }
+    @media (max-width:952px){
+      label.logo{
+        font-size: 30px;
+        padding-left: 10px;
+      }
+      nav ul li a{
+        font-size: 16px;
+      }
+    }
+    @media (max-width:858px){
+      .checkbtn{
+        display: block;
+      }
+      ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        color: #fff;
+        top: 70px;
+        left:-100%;
+        text-align: center;
+        transition: all .5s;
+        z-index: 1;
+      }
+      nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+      }
+      nav ul li a{
+        font-size: 20px;
+      }
+      a:hover,a.active{
+        background: none;
+        color: #0082e6;
+      }
+      #check:checked ~ ul{
+        left: 0;
+      }
+    }
+    .heading{
+      display: flex;
+      justify-content: space-evenly;
+      margin-right: 45%;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .left p:nth-child(1){
+      color: orange;
+      font-size: 30px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+    .left h1{
+      font-size: 50px;
+      color: black;
+    }
+    .left p:nth-child(3){
+      color: orange;
+      font-size: 30px;
+      font-style: italic;
+    }
+    .left button{
+      width: 150px;
+      height: 30px;
+      font-size: 15px;
+      border:none;
+      border-radius: 20px;
+      color:white;
+      margin: 20px 0px;
+      background-color: black;
+      position: relative;
+      margin-top: 30px;
+      
+    }
+     .left button:hover{
+      background-color:orange;
+      color: black;
+      transition: 3s;
+      outline: none;
+      border: none;
+    }
+      .heading .image{
+      position: relative;
+      left: 50%;
+      height: 80%;
+      width: 100%;
+      justify-content:center;
+      align-items: center;
+    
+    }
+    .pizza{
+  position: relative;
+  left: 110%;
+  height: 320px;
+  width: 400px;
+  margin-top: 10px;
+}
+@media (max-width:600px){
+     .left{
+        font-size: 8px;
+        text-align: center;
+    }
+    .pizza{
+        width:100px;
+        height: 100px;
+        margin-left: 2px;
+    }
+    .pizza img{
+    position: relative;
+  left: 50px;
+    }
+    .left h1{
+      font-size: 20px;
+      margin-right: 70px;
+    }
+    .left p{
+      font-size: 18px;
+    }
+    .left p:nth-child(1),
+    .left p:nth-child(3){
+      font-size: 25px;
+      margin-right: 70px;
+    }
+}
+.sub-heading{
+    text-align: center;
+    color:green; 
+    font-size: 2rem;
+    padding-top: 1rem;
+    position: relative;
+}
+.high{
+text-align: center;
+color: black;
+font-size: 3rem;
+padding-bottom: 2rem;
+text-transform: uppercase;
+position: relative;
+}
+ .dishes .box-container{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      max-width: 1200px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap; 
+      text-align: center;
+      justify-content: center; 
+    }
+   /* @media (max-width:600px){
+      .dishes .box-container{
+        display: flex;
+        flex-wrap: wrap; 
+      }
+      
+    }*/
+    .dishes .box-container .box{
+      background: #fff;
+      border-radius: .5rem;
+      position: relative;
+      width: 280px;
+      height: 330px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
+      position: relative;
+      text-align: center;
+      border-radius: 8px;
+      margin: 15px;
+      overflow: hidden;
+    }
+    .dishes .box-container .box:hover{
+      box-sizing: 0 10px 15px rgba(0,0,0,.3);
+      transform: scale(1.03);
+    }
+    
+    .dishes .box-container .box .fa-heart,
+    .dishes .box-container .box .fa-eye{
+      position: absolute;
+      top: 1.5rem;
+      background: #eee;
+      border-radius: 50%;
+      height: 3rem;
+      width: 3rem;
+      line-height: 3rem;
+      font-size: 1.2rem;
+      color: black;
+      text-decoration: none;
+    }
+    .dishes .box-container .box .fa-heart:hover,
+    .dishes .box-container .box .fa-eye:hover{
+      background: green;
+      color: #fff;
+    
+    }
+    .dishes .box-container .box .fa-heart{
+      right: -15rem;
+
+    }
+    .dishes .box-container .box .fa-eye{
+      left: -15rem;
+    }
+    .dishes .box-container .box:hover .fa-heart{
+      right: 1.5rem;
+
+    }
+    .dishes .box-container .box:hover .fa-eye{
+      left: 1.5rem;
+    }
+    
+    .dishes .box-container .box h3{
+      color: black;
+      font-size: 2rem;
+    }
+    .dishes .box-container .box .stars{
+      padding: 1rem;
+    }
+    .dishes .box-container .box .stars i{
+      font-size: 1rem;
+      color: green;
+    }
+    .dishes .box-container .box span{
+      color: green;
+      font-weight: bolder;
+      margin-right: 20px;
+      font-size: 1.5rem;
+      position: relative;
+      bottom: 10px;
+    }
+    .dishes .box-container .box .btn{
+      height: 40px;
+      width: 130px;
+      font-size: 1.2rem;
+      color: white;
+      background: #2c3e50;
+      margin-right:10px;
+      position: relative;
+      text-align: center;
+      bottom: 15px;
+      
+      
+    }
+    .dishes .box-container .box .btn:hover{
+      background: orange;
+      color: black;
+    }
+    .menu .box-container{
+      grid-template-columns: auto auto auto;
+      max-width: 1200px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap; 
+      text-align: center;
+      justify-content: center; 
+      margin: 15px;
+   }
+   .menu .box-container .box{
+    background: #fff;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10 10px;
+    margin: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    height: 360px;
+    width: 280px;
+   }
+   .menu .box-container .box:hover{
+   box-sizing: 0 10px 15px rgba(0,0,0,.3);
+   transform: scale(1.03);
+   }
+   .menu .box-container .box .fa-heart{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 1rem;
+    background: #fff;
+    border-radius: 50%;
+    color: black;
+
+   }
+   .menu .box-container .box .fa-heart:hover{
+    background-color: green;
+    color: #fff;
+   }
+   .menu .box-container .box .fa-heart:hover{
+    background-color: none;
+   }
+
+   .menu .box-container .box .stars{
+    padding-bottom: 1rem;
+   }
+   .menu .box-container .box .stars i{
+    font-size: 1.2rem;
+    color: green;
+   }
+   .menu .box-container .box h3{
+    color: black;
+    font-size: 1.7rem;
+   }
+   .menu .box-container .box p{
+   color: black;
+   font-size: 1rem;
+    padding: .5rem 0;
+    line-height: 1;
+
+   }
+   .menu .box-container .box .price{
+    color: green;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 25px;
+    text-align: center;
+    right: 90px;
+   }
+   .menu .box-container .box .btn{
+    background: #2c3e50;
+    color: #eee;
+    height: 40px;
+    width: 120px;
+    position: relative;
+    margin-left: 50px;
+    top: 10px;
+    
+   }
+   .about .row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items:center;
+    }
+    .about .row .image{
+      flex: 1 1 45rem;
+    }
+    .about .row .image img{
+      position: relative;
+      right: 290%;
+      bottom: 40px;
+      height: 350px;
+      width: 350px;
+    
+    }
+    .about .row .content{
+      flex: 1 1 45rem;
+    }
+   .about .row .content h3{
+    font-size: 30px;
+    bottom: 80px;
+    color: black;
+    bottom: 350px;
+    position: relative;
+    left: 65px;
+   }
+   .about .row .content p{
+    width: 500px;
+    position: relative;
+    padding: .5rem;
+    bottom: 350px;
+  left: 60px;
+   }
+   .about  .row .btn{
+    color: white;
+    background: #2c3e50;
+   }
+   .about  .row .btn:hover{
+    background: orange;
+    color: black;
+    transition: 2s;
+   }
+   .about .row .content .icons-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-top: .5rem;
+   }
+   .about .row .content .icons-container .icons{
+    background: #eee;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    position: relative;
+    bottom: 330px;
+    padding: 15px 15px;
+    margin: 8px;
+    left: 270px;
+    transition: 0.3s;
+    gap: 1rem;
+   }
+   .about .row .content .icons-container .icons i{
+    font-size: 2.5rem;
+    color: green;
+   }
+   .about .row .content .icons-container .icons span{
+    font-size: 1.2rem;
+    color: green;
+  
+   }
+   .about .row .content .icons-container .icons:hover{
+    transform: scale(1.1);
+   }
+   .about .row .content .btn{
+    bottom: 350px;
+    left: 50px;
+    position: relative;
+    width: 200px;
+    border-radius: 20px;
+    background:orange;
+    font-size: 20px;
+   }
+
+   @media (max-width:600px){
+    .about .row .content p{
+      font-size: 10px;
+      position: relative;
+    left: 20px;
+      width:200px;
+      
+    }
+    .about .row .image img{
+      height: 100px;
+      width: 150px;
+      position: relative;
+    right: 370px;
+    top: 50px;
+    }
+    .about .row .content h3{
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+    }
+    .about .row h3,h1{
+      font-size: 18px;
+    }
+    .about .row .content .icons-container{
+      position: relative;
+      right: 180px;
+    }
+    .about .row .content .btn{
+      height: 60px;
+      width: 140px;
+      left: 80px;
+      position: relative;
+    }
+   }
+    /*--review--*/
+    .review{
+    width: 100%;
+    height: 100vh;
+    padding: 70px 0;
+    position: relative;
+    bottom: 340px;
+
+   }
+   .review h1{
+    font-size: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 30px;
+    
+  
+   }
+   .review h1 span{
+    margin-left: 15px;
+    color: orange;
+    font-style: italic;
+    justify-content: center;
+   }
+   .review h1 span::after{
+    content: "";
+    width: 100%;
+    background: orange;
+   }
+     .review  .review-box{
+     width: 100%;
+     height: 70px auto;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     }
+     .review .review-box .review-card{
+      width: 250px;
+      height: 400px;
+       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 10px 10px;
+      margin: 20px;
+      position: relative;
+      
+    
+     }
+     .review .review-box .review-card .review-profile{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: 0.3s;
+     }
+     .review .review-box .review-card:hover .review-profile{
+      transform: translateY(-60px);
+     }
+     .review .review-box .review-card .review-profile img{
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 5px solid white;
+     }
+     .review .review-box .review-card .review-text{
+      text-align: center;
+     }
+     .review .review-box .review-card .review-text .name{
+      color: black;
+      transition: 0.3s;
+     }
+     .review .review-box .review-card:hover .review-text .name{
+      transform: translateY(-50px);
+     }
+     .review .review-box .review-card .review-text .review-icon{
+      color: #fac031;
+      transition: 0.3s;
+     }
+     .review .review-box .review-card:hover .review-text .review-icon{
+      transform: translateY(-30px);
+     }
+     .review .review-box .review-card .review-text .review-social i{
+      margin: 5;
+      font-size: 15px;
+      opacity: 1;
+      cursor:pointer;
+      transition: 0.3s;
+     }
+     .review .review-box .review-card:hover .review-text .review-social i{
+      opacity: 1;
+      transform: translateY(-8px);
+     }
+     .review .review-box .review-card .review-text p{
+      text-align: center;
+      line-height: 22px;
+      transition: 0.3s;
+     }
+
+     @media (max-width:600px){
+      .review h1,
+      review h1 span{
+        font-size: 30px;
+
+      }
+     }
+      /*order*/
+      .order{
+        width: 100%;
+        height: 100vh;
+        padding: 70px 0;
+        bottom: 250px;
+      
+        position: relative;
+        }
+        .order h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 60px;
+        position: relative;
+      
+        }
+        .order h1 span{
+        color: orange;
+        margin-right: 15px;
+        font-style: italic;
+        position: relative;
+        }
+        .order .order-main{
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        
+        }
+        .order .order-main .order-image img{
+        width: 300px;
+        top: 20px;
+        position: relative;
+        }
+        .order .order-main form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 10px;
+        }
+        .order .order-main form .input p{
+        line-height: 25px;
+        }
+        .order .order-main form .input{
+        margin: 5px;
+        }
+        .order .order-main form .input input{
+        width: 300px;
+        height: 35px;padding: 0 10px;
+        border: 2px solid #ccc;
+        padding: 0 10px;
+        outline: none;
+        border-radius: 3px;
+        position: relative;
+        }
+        .order .order-image form .input input:focus{
+          border: 2px solid orange;
+        }
+        .order .order-main form .order-btn{
+          padding: 10px 0;
+          background: orange;
+          color: white;
+          width: 40%;
+          text-align: center;
+          position: relative;
+          top: 20px;
+          text-decoration: none;
+        }
+        @media (max-width:600px){
+          .order .order-main ,.order h1{
+            top: 850px;
+            position: relative;
+          }
+          .order .order-main form .input input{
+            width: 80px;
+            margin-right: 20px;
+            top: 8px;
+            position: relative;
+          }
+          .order .order-main .order-image img{
+            height: 130px;
+            width: 120px;
+            position: relative;
+            bottom: 20px;
+            
+          }
+          .order .order-main form .order-btn{
+            height: 40px;
+            width: 100px;
+        
+          }
+        }
+         /*team*/
+         .team{
+          width: 100%;
+          height: 90vh;
+          position: relative;
+          bottom: 80px;
+        
+        }
+        .team h1{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 60px;
+          position: relative;
+          bottom: 50px;
+          
+          
+        }
+        .team h1 span{
+          color: orange;
+          margin-left: 15px;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .team .team-box{
+          width: 80%;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          gap: 5rem;
+    
+        }
+        .team .team-box .profile{
+          width: 390px;
+          height: 320px;
+          border-radius: 50%;
+          margin:  0 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+          transition: 0.4s;
+          
+        }
+        .team .team-box .profile:hover{
+          border-radius: 20px;
+          height: 320px;
+        }
+        .team .team-box .profile img{
+          width: 250px;
+          height: 250px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 50%;
+          cursor: pointer;
+          box-shadow: 0 8px rgba(0, 0, 0, 0);
+          z-index: 2;
+          transition: 0.4s;
+          gap: 3rem;
+        }
+        .team .team-box .profile img:hover{
+          border-radius: 20px;
+          margin-top: -230px;
+        }
+        .team .team-box .profile .info{
+          position: absolute;
+          text-align: center;
+          top: 25%;
+          transition: 0.4s;
+        }
+        .team .team-box .profile:hover .info{
+          top: 60%;
+        }
+        .team .team-box .profile:hover .info .name{
+          color: orange;
+        }
+        .team .team-box .profile:hover .info .bio{
+          width: 60%;
+          text-align: center;
+          margin: 0 auto 10px auto;
+        }
+        .team .team-box .profile:hover .info .team-icon i{
+          margin: 10px 5px 5px 0;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        .team .team-box .profile:hover .info .team-icon i:hover{
+          color: orange;
+        }
+        @media (max-width:600px){
+          .team h1{
+            position: relative;
+            top: 720px;
+            font-size: 40px;
+          }
+          .team .team-box{
+            position: relative;
+           top: 680px;
+            justify-content: center;
+            display: grid;
+            margin-top: 90px;
+            gap: 2rem;
+          }
+          .team .team-box .profile img{
+            height: 150px;
+            width: 180px;
+          }
+          .team .team-box .profile{
+            width: 300px;
+            height: 300px;
+          }
+          .team .team-box .profile:hover .info .bio{
+            width: 80%;
+            text-align: center;
+            justify-content: center;
+          }
+          .team .team-box .profile{
+            height: 200px;
+            width: 180px;
+          }
+        }
+            #menu{
+              padding: 25px 0 25px 0;
+            }
+            #section{
+              padding: 25px 0 25px 0;
+              text-align: center;
+              font-size: 2rem;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            #menu-row{
+              display: flex;
+              padding: 1 100px 0 100px;
+            }
+            #menu-col{
+              box-shadow: 2px 2px 2px #bbb;
+              border: 1px solid #bbb;
+              background-color: #fff;
+              margin: 10px;
+              padding: 10px;
+              flex: 1;
+            }
+            #menu-col:hover{
+            box-sizing: 0 10px 15px rgba(0,0,0,.3);
+            transform: scale(1.03);
+            }
+            #menu-col h2{
+              background-color: red;
+              color: #fff;
+              text-align: center;
+              padding: 5px;
+              font-family: cursive;
+            }
+            #image{
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              padding: 5px;
+              border: 2px solid orange;
+            }
+            
+            #image img{
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            .box{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              margin: 5px;
+            }
+            #menu-col h3{
+              font-size: 20px;
+              text-align: center;
+
+            } 
+            @media screen and (max-width:768px){
+              #mobile-menu{
+                display: block;
+              }
+              #navbar ul{
+                display: none;
+              }
+              html{
+                font-size: 95%;
+              }
+              #menu-row{
+                flex-wrap: wrap;
+                padding: 0 10px 0 10px;
+
+              }
+            }
+            footer {
+    /* Dark background color */
+    color:black; /* White text color */
+    padding: 20px;
+    text-align:center;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.footer-tag {
+    flex: 1;
+    min-width: 150px; /* Ensure minimum width for readability */
+    margin: 10px;
+}
+
+
+.footer-tag p {
+    margin: 5px 0;
+}
+.footer-tag p:hover{
+  color:grey;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px; /* Space between icons*/ 
+}
+
+.social-icons i {
+    font-size: 24px; /* Increase icon size*/ 
+    color: #ff9900; /* Icon color */
+    cursor: pointer; /* Change cursor on hover */
+}
+.social-icons i:hover{
+  background:green;
+}
+.end {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.end span {
+    color: #ff9900; /* Highlight designer's name */
+}
+/* Media Queries */
+@media (max-width: 600px) {
+    .footer-main {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+        position: relative;
+        top: 300px; /* Center align items */
+    }
+    .footer-main{
+      position: relative;
+      top: 600px;
+    }
+
+    .footer-tag {
+        text-align: center; /* Center align text for better readability */
+        margin: 10px 0; /* Adjust margins */
+    }
+    .footer-tag i{
+      justify-content: center;
+      position: relative;
+      top: 385px;
+    }
+    .footer-tag p{
+      position: relative;
+      top: 400px;
+    }
+    .footer-tag h2{
+      position: relative;
+      top: 390px;
+    }
+    .end{
+      position: relative;
+      top: 960px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-tag h2 {
+        font-size: 18px; 
+        position: relative; top: 350px;/* Smaller heading size */
+    }
+    .footer-tag p {
+        font-size: 14px; 
+        position: relative;
+        top: 600px;
+        /* Smaller text size */
+    }
+
+    .end {
+        font-size: 12px; position: relative;
+        top: 930px; /* Smaller footer text */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-sharp fa-solid fa-list"></i>
+        </label>
+        <label class="logo">DesignX</label>
+        <ul>
+          <li><a class="active" href="#Home">Home</a></li>
+          <li><a  href="#Dishes">Dishes</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Menu">Menu</a></li>
+          <li><a href="#Review">Review</a></li>
+          <li><a href="#Order">Order</a></li>
+        </ul>
+        <div class="search">
+          <input type="text" placeholder="search here">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="loginbtn">
+          <a href="#">Log in</a>
+          <div class="arrow-up"></div>
+          <center>
+          <form action="">
+            <h1>Log in form</h1>
+            <input type="text" placeholder="User Name">
+            <input type="password" placeholder="Password">
+            <button onclick="" class="login">Login</button>
+            <p>Click here for Register <br>
+            or <br>
+          forgot password</p>
+          </form>
+          </center>
+        </div>
+      </nav>
+      <!--Home start-->
+     <!--Home start-->
+<div class="heading" id="Home">
+    <img class="pizza" src="images/bringi.jfif" alt="">
+    <div class="left">
+    <p>Are You Hungry?</p>
+    <h1>Don't Wait </h1>
+    <p>Let Start to Order food now</p>
+    <button >Check out Menu</button>
+    </div>
+</div>
+    <!---Home end-->
+    <!--#Dishes section starts-->
+  <section class="dishes" id="Dishes">
+    <h3 class="sub-heading">Our Dishes</h3>
+    <h1 class="high"> Popular Dishes</h1>
+    <div class="box-container">
+      <div class="box">
+        <a href="#" class="fa-solid fa-heart"></a>
+        <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+       <img src="images/burger2.jfif" height="140" width="200">
+        <h3>Tasty Food</h3>
+        <div class="stars">
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
+        <span>$15.99</span><br>
+        <a href="#" class="btn">Add to card</a>
+      </div>
+
+    <div class="box">
+      <a href="#" class="fa-solid fa-heart"></a>
+      <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+      <img src="images/briyani img1.jfif" alt="" height="140" width="200">
+      <h3>Tasty Food</h3>
+      <div class="stars">
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+      </div>
+      <span>$15.99</span><br>
+      <a href="#" class="btn" style="bottom: 3%; position: relative;">Add to card</a>
+    </div>
+  
+  <div class="box">
+    <a href="#" class="fa-solid fa-heart"></a>
+    <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+    <img src="images/chicken img3.jfif" height="140" width="200">
+    <h3>Tasty Food</h3>
+    <div class="stars">
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+
+    </div>
+    <span>$15.99</span><br>
+    <a href="#" class="btn">Add to card</a>
+  </div>
+
+  
+  <div class="box">
+    <a href="#"class="fa-solid fa-heart"></a>
+    <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+   <img src="images/white rice.jfif" height="140" width="200"> 
+    <h3>Tasty Food</h3>
+    <div class="stars">
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <span>$15.99</span><br>
+    <a href="#" class="btn" style="bottom: 3%; position: relative;">Add to card</a>
+  </div>
+
+  <div class="box">
+    <a href="#" class="fa-solid fa-heart"></a>
+    <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+   <img src="images/pizza image 1.jpg" height="140" width="200"> 
+    <h3>Tasty Food</h3>
+    <div class="stars">
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <span>$15.99</span><br>
+    <a href="#" class="btn">Add to card</a>
+  </div>
+  <div class="box">
+    <a href="#" class="fa-solid fa-heart"></a>
+    <a href="#" class="fa-sharp fa-solid fa-eye"></a>
+   <img src="images/bun burger img.jfif" height="140" width="200"> 
+    <h3>Tasty Food</h3>
+    <div class="stars">
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+    </div>
+    <span>$15.99</span><br>
+    <a href="#" class="btn">Add to card</a>
+  </div>
+    </div>
+  </section>
+  <!---dishes section ends-->
+        <div id="Menu">
+        <h1 id="section">Menu</h1>
+        <div id="menu-row">
+
+        <div  id="menu-col">
+        <h2>Breakfast</h2>
+        <div class="box">
+        <div id="image">
+        <img src="images/burger2.jfif">
+        </div>
+        <div>
+        <h3>Tasty Dish</h3>
+        <h4>10$</h4>
+        </div>
+        </div>
+        <div class="box">
+          <div id="image">
+          <img src="images/burger1.jfif">
+          </div>
+          <div>
+          <h3>Burger</h3>
+          <h4>60$</h4>
+          </div>
+          </div>
+        </div>
+
+            <div  id="menu-col">
+              <h2>Lunch</h2>
+              <div class="box">
+              <div id="image">
+              <img src="images/lunch1.jfif">
+              </div>
+              <div>
+              <h3>Lunch</h3>
+              <h4>150$</h4>
+              </div>
+              </div>
+                <div class="box">
+                <div id="image">
+                <img src="images/lunch2.jfif">
+                </div>
+                <div>
+                <h3>Special lunch</h3>
+                <h4>125$</h4>
+                </div>
+                </div>
+            </div>
+        
+        <div  id="menu-col">
+          <h2>Dinner</h2>
+          <div class="box">
+          <div id="image">
+          <img src="images/dinner1.jfif">
+          </div>
+          <div>
+          <h3>Dosa</h3>
+          <h4>40$</h4>
+          </div>
+          </div>
+          <div class="box">
+            <div id="image">
+            <img src="images/dinner2i.jfif">
+            </div>
+            <div>
+            <h3>Chappathi</h3>
+            <h4>60$</h4>
+            </div>
+            </div>
+        </div>
+          </div>
+        </div>
+        </div>
+        <!--about section starts-->
+  <section class="about" id="About">
+    <h3 class="sub-heading">About Us</h3>
+    <h1 class="high">Why Chooose Us?</h1>
+    <div class="row">
+      <div class="image">
+        <img src="images/pizza image 1.jpg" alt="" height="450" width="500">
+      </div>
+      <div class="content">
+        <h3>Best Food in your country</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, at, quas facilis sint quasi rerum officiis vitae minima recusandae corporis odio excepturi impedit. Quis praesentium sapiente voluptatibus laborum aperiam possimus optio inventore accusantium blanditiis modi animi, culpa iste porro sunt cumque repudiandae perferendis. Ducimus fugit, ad eius totam omnis doloribus.</p>
+        <button class="btn">Read More</button>
+        <div class="icons-container">
+            <div class="icons">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>free delivery</span>
+            </div>
+            <div class="icons">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span>Easy payments</span>
+            </div>
+            <div class="icons">
+                <i class="fa-solid fa-headset"></i>
+                <span>24/7 services</span>
+            </div>
+        </div>
+          </div>
+      </div>
+  </section>
+ <!----about section ends-->
+  <!---review-->
+<div class="review" id="Review">
+    <h1>Customer <span>Review</span></h1>
+    <div class="review-box">
+      <div class="review-card">
+        <div class="review-profile">
+          <img src="images/review img1.jfif" height="200" width="200">
+        </div>
+        <div class="review-text">
+          <h2 class="name">John Deo</h2>
+          <div class="review-icon">
+            <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="review-social">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            
+          </div>
+          <p>dolor sit amet. Lorem ipsum dolor sit  quia vel corrupti dicta voluptatibus accusantium voluptatum Quis incidunt?</p>
+  
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-profile">
+          <img src="images/review img3.jfif" height="200" width="200">
+        </div>
+        <div class="review-text">
+          <h2 class="name">John Deo</h2>
+          <div class="review-icon">
+            <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="review-social">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+          <p>laboriosam explicabo eveniet similique accusamus quia vel corrupti dicta voluptatibus accusantium. Quis, a incidunt?</p>
+  
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-profile">
+          <img src="images/review img4.jpg" height="200" width="200">
+        </div>
+        <div class="review-text">
+          <h2 class="name">John Deo</h2>
+          <div class="review-icon">
+            <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="review-social">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+          <p>laboriosam explicabo eveniet similique iste accusamus quia vel corrupti dicta voluptatibus accusantium. Quis, a incidunt?</p>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--review end-->
+  <!--order section start-->
+<div class="order" id="Order">
+    <h1> <span>order</span>now</h1>
+    <div class="order-main">
+    <div class="order-image">
+    <img src="images/order img.jfif" alt="">
+    </div>
+    <form action="#">
+    <div class="input">
+    <p>Name</p>
+    <input type="text" placeholder="your name">
+    </div>
+    <div class="input">
+    <p>Email</p>
+    <input type="text" placeholder="your email">
+    </div>
+    <div class="input">
+    <p>Number</p>
+    <input placeholder="your number">
+    </div>
+    <div class="input">
+    <p>How Much</p>
+    <input type="text" placeholder="how much order">
+    </div>
+    <div class="input">
+    <p>Your Order</p>
+    <input placeholder="food name">
+    </div>
+    <div class="input">
+    <p>Address</p>
+    <input placeholder="your address">
+    </div>
+    <a href="" class="order-btn">Order now</a>
+    </form>
+    </div>
+    </div>
+    <!--team-->
+  <div class="team">
+    <h1>Our<span>Team</span></h1>
+    <div class="team-box">
+          <div class="profile">
+            <img src="images/chef2.jfif" >
+            <div class="info">
+              <h2 class="name">Chef</h2>
+              <p class="bio"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="profile">
+            <img src="images/chef3.jfif" >
+            <div class="info">
+              <h2 class="name">Chef</h2>
+              <p class="bio"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+            <div class="profile">
+              <img src="images/chef5.jfif" >
+              <div class="info">
+                <h2 class="name">Chef</h2>
+                <p class="bio"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </div>
+      </div>
+    </div>  
+<!--team ends-->
+<!--footer-->
+<footer>
+  <div class="footer-main">
+    <div class="footer-tag">
+      <h2>Location</h2>
+      <p>Sri Lanka</p>
+      <p>USA</p>
+      <p>India</p>
+      <p>Japan</p>
+      <p>Italy</p>
+    </div>
+
+    <div class="footer-tag">
+      <h2>Quick Link</h2>
+      <p>Home</p>
+      <p>Dishes</p>
+      <p>Menu</p>
+      <p>About</p>
+      <p>Order</p>
+      <p>Review</p>
+      <p>team</p>
+    </div>
+    <div class="footer-tag">
+      <h2>Contact</h2>
+      <p>+96 12 3456 789</p>
+      <p>+87 34 7867 908</p>
+      <p>foodshop123@gmail.com</p>
+      <p>restarent234@gmail.com</p>
+    </div>
+    <div class="footer-tag">
+      <h2>Our Service</h2>
+      <p>Fast Delivery</p>
+      <p>Easy Payment</p>
+      <p>24/8 Service</p>
+    </div>
+    <div class="footer-tag">
+      <h2>Follows</h2>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-square-twitter"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+  </div>
+  <p class="end"> Design by <span><i class="fa-solid fa-face-grin-wide"></i>WT Master Code</span></p>
+</footer>
+
+</body>
+</html>
